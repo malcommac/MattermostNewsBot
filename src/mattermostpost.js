@@ -19,7 +19,6 @@ MattermostPost.prototype.body = function() {
 
 // Deliver the message to mattermost specified hook url
 MattermostPost.prototype.send = function() {
-    /*
     let request = require('request');
     request({
         url: this.hookURL,
@@ -30,11 +29,9 @@ MattermostPost.prototype.send = function() {
         rejectUnhauthorized: false
     }, (error, response, body) => {
         if (error) {
-            Logger.warning(`  [Mattermost] Failed to send post: ${error}`)
-        } else {
-            Logger.info(`  [Mattermost] Message sent to mattermost`)
+            Logger.warning(`[Mattermost] Failed to send post: ${error}`)
         }
-    });*/
+    });
 }
 
 module.exports = MattermostPost
