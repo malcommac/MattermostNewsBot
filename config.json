@@ -1,15 +1,47 @@
 {
     "rss": [{
-        "url": " https://raywenderlich.com/ios/feed",
-        "image": "",
-        "name": "RW",
-        "channel": "ios-news",
-        "template": "New Release: [{{title}}](https://github.com{{link}})",
-        "last_update_ts": 0,
-        "maxItems": 2
-    }],
+            "url": "https://raywenderlich.com/ios/feed",
+            "image": "https://mattermost.ekbl.net/files/6cgs845iwtncixk9ocddsocceh/public?h=NK1lay51XIuAsCibZgNZmGfEci3bPe9lzeHsQR5_bX8",
+            "name": "RayWenderlich",
+            "channel": "ios-news",
+            "template": "**[{{title}}]({{link}})**\n*{{description}}*",
+            "last_update_ts": 0,
+            "maxItems": 1,
+            "enabled": false
+        },
+        {
+            "url": "https://github.com/apple/swift-evolution/commits/master.atom",
+            "image": "https://mattermost.ekbl.net/files/9uzj3fyc97d7ukcpcsnjdftxbe/public?h=d8iqHWw67ekebfgAbjJzCHITStTePZ1DpMlvhhdmXRs",
+            "name": "Swift-Evolution",
+            "channel": "ios-news",
+            "template": "**[{{title}}]({{link}})**\n*{{description}}*",
+            "last_update_ts": 0,
+            "maxItems": 1,
+            "enabled": false
+        },
+        {
+            "url": "https://developer.apple.com/news/releases/rss/releases.rss",
+            "image": "https://mattermost.ekbl.net/files/dh87nazkbjb6ixuuiejasazg5w/public?h=-1MsNrQSqct6LiF5IIISBbAqhNI5NDRFP5278dtzoPA",
+            "name": "Apple Releases",
+            "channel": "ios-news",
+            "template": "**[{{title}}]({{link}})**\n*{{description}}*",
+            "last_update_ts": 0,
+            "maxItems": 1,
+            "enabled": false
+        },
+        {
+            "url": "https://developer.apple.com/news/rss/news.rss",
+            "image": "https://mattermost.ekbl.net/files/i63mhkcm1byoiyjqi55b9mrh6h/public?h=8-ueHSOaV0E_NsZDEjcJ5AC4QK9ZbSthhExh89C0CRY",
+            "name": "Apple Developer News",
+            "channel": "ios-news",
+            "template": "**[{{title}}]({{link}})**\n*{{description}}*",
+            "last_update_ts": 0,
+            "maxItems": 1,
+            "enabled": true
+        }
+    ],
     "mattermost": {
-        "hook_url": "https://mattermost"
+        "hook": ""
     },
     "interval": "300000"
 }

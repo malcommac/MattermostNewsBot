@@ -15,6 +15,7 @@ let RSSFeed = function(configObj) {
     this.last_update_ts = configObj.last_update_ts || 0
     this.feedItems = []
     this.maxItems = configObj.maxItems
+    this.enabled = configObj.enabled
 }
 
 // Fetch new data from server and return the list of new items found since
@@ -45,7 +46,7 @@ RSSFeed.prototype.fetch = function(callback) {
         this.meta = parser.meta
         let rawFeedItem
         while (rawFeedItem = parser.read()) { // read the feed and fill the array
-            let feedItem = new RSSFeedItem(rawFeedItem)
+            let feedItem = new RSSFeedItem(rawFeedItem, this)
             this.feedItems.push(feedItem)
         }
     })
@@ -76,13 +77,14 @@ RSSFeed.prototype.updateTimestamp = function(ts) {
 // Register and execute periodic fetch to server.
 RSSFeed.prototype.registerPeriodicFetch = function(seconds, callback) {
     let fetchNewItemsFnc = () => {
+        Logger.info(`Now checking ${this.name} feed for new items...`)
         this.fetch((newRSSItems) => { // fetch data from server
             // create a post for mattermost
             let posts = []
-            let mattermostConfig = Config.mattermost
+            let mattermostConfig = Config.data.mattermost
             for (let rssItem of newRSSItems) {
-                let message = rssItem.createMessageFromTemplate(this.template)
-                let post = new MattermostPost(message, rssItem, this.channel, mattermostConfig)
+                rssItem.template = this.template
+                let post = new MattermostPost(rssItem, mattermostConfig)
                 posts.push(post)
             }
             callback(posts)

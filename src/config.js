@@ -14,7 +14,8 @@ Config.updateRSSFeedTimestamp = function(feedURL, updatedTimestamp) {
 
 Config.saveOnDisk = function() {
     let fs = require('fs')
-    fs.writeFile('./config.json', JSON.stringify(this.data, null, 2), 'utf8', (error) => {
+    let data = JSON.stringify(this.data, null, 2)
+    fs.writeFile('./config.json', data, 'utf8', (error) => {
         if (error) {
             Logger.warning(`Failed to save updated timestamps for feeds: ${error}`)
         }
