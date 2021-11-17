@@ -19,6 +19,7 @@ MattermostPost.prototype.body = function() {
 
 // Deliver the message to mattermost specified hook url
 MattermostPost.prototype.send = function() {
+    /*
     let request = require('request');
     request({
         url: this.hookURL,
@@ -33,7 +34,7 @@ MattermostPost.prototype.send = function() {
         } else {
             Logger.info(`  [Mattermost] Message sent to mattermost`)
         }
-    });
+    });*/
 }
 
 module.exports = MattermostPost

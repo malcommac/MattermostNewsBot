@@ -26,7 +26,7 @@ RSSFeed.prototype.fetch = function(callback) {
 
     // HTTP Request Events
     req.on('error', (error) => {
-        Logger.warning(`  [RSS] Failed to get updates for '${this.name}'': ${error}`)
+        Logger.warning(`[RSS] Failed to get updates for '${this.name}'': ${error}`)
     })
 
     req.on('response', (res) => {
@@ -39,7 +39,7 @@ RSSFeed.prototype.fetch = function(callback) {
 
     // RSS Feed Parser Events
     parser.on('error', (error) => {
-        Logger.warning(`  [RSS] Failed to get RSS from '${this.name}': ${error}`)
+        Logger.warning(`[RSS] Failed to get RSS from '${this.name}': ${error}`)
     })
 
     parser.on('readable', () => {
@@ -52,32 +52,33 @@ RSSFeed.prototype.fetch = function(callback) {
     })
 
     parser.on('end', () => {
-        // sort by most recents
         this.feedItems.sort((l, r) => { return l.date - r.date })
         if (this.last_update_ts != 0) { // filter only new articles since last check
             this.feedItems = this.feedItems.filter(function(feedItem) {
                 return feedItem.date > this.last_update_ts;
             })
-            this.updateTimestamp(Date.now())
+            this.updateTimestamp(this.feedItems.last())
             callback(this.feedItems)
         } else { // first time we add this rss feed, only get the last news.
-            this.updateTimestamp(Date.now())
             let max = (this.feedItems.length >= this.maxItems ? this.maxItems : this.feedItems.length)
-            let items = this.feedItems.slice(0, max)
+            let items = this.feedItems.subarray(this.feedItems.length - max, max)
+            this.updateTimestamp(items.last())
             callback(items)
         }
     })
 }
 
 // Update the timestamp and save it on disk.
-RSSFeed.prototype.updateTimestamp = function(ts) {
-    Config.updateRSSFeedTimestamp(this.rssURL, ts)
+RSSFeed.prototype.updateTimestamp = function(recentItem) {
+    let timestamp = (recentItem === undefined ? Date.now() : recentItem.date)
+    this.last_update_ts = timestamp // in memory check
+    Config.updateRSSFeedTimestamp(this.rssURL, timestamp) // save to disk
 }
 
 // Register and execute periodic fetch to server.
 RSSFeed.prototype.registerPeriodicFetch = function(seconds, callback) {
     let fetchNewItemsFnc = () => {
-        Logger.info(`  [RSS] Now checking ${this.name} feed for new items...`)
+        Logger.info(`[RSS] Updating '${this.name}'...`)
         this.fetch((newRSSItems) => { // fetch data from server
             // create a post for mattermost
             let posts = []
@@ -91,10 +92,19 @@ RSSFeed.prototype.registerPeriodicFetch = function(seconds, callback) {
         })
     }
 
-    Logger.info(`  [RSS] Periodic update for ${this.name} set every ${seconds}s`)
     fetchNewItemsFnc() // first time is called immediately
-
     setInterval(fetchNewItemsFnc, seconds)
+};
+
+// Array extensions
+
+Array.prototype.last = function() {
+    return this[this.length - 1];
+}
+
+Array.prototype.subarray = function(start, end) {
+    if (!end) { end = -1; }
+    return this.slice(start, this.length + 1 - (end * -1));
 };
 
 module.exports = RSSFeed
