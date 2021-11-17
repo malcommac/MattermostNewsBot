@@ -26,7 +26,7 @@ RSSFeed.prototype.fetch = function(callback) {
 
     // HTTP Request Events
     req.on('error', (error) => {
-        Logger.warning(`Failed to get updates for '${this.name}'': ${error}`)
+        Logger.warning(`  [RSS] Failed to get updates for '${this.name}'': ${error}`)
     })
 
     req.on('response', (res) => {
@@ -39,7 +39,7 @@ RSSFeed.prototype.fetch = function(callback) {
 
     // RSS Feed Parser Events
     parser.on('error', (error) => {
-        Logger.warning(`Failed to get RSS from '${this.name}': ${error}`)
+        Logger.warning(`  [RSS] Failed to get RSS from '${this.name}': ${error}`)
     })
 
     parser.on('readable', () => {
@@ -77,7 +77,7 @@ RSSFeed.prototype.updateTimestamp = function(ts) {
 // Register and execute periodic fetch to server.
 RSSFeed.prototype.registerPeriodicFetch = function(seconds, callback) {
     let fetchNewItemsFnc = () => {
-        Logger.info(`Now checking ${this.name} feed for new items...`)
+        Logger.info(`  [RSS] Now checking ${this.name} feed for new items...`)
         this.fetch((newRSSItems) => { // fetch data from server
             // create a post for mattermost
             let posts = []
@@ -91,7 +91,7 @@ RSSFeed.prototype.registerPeriodicFetch = function(seconds, callback) {
         })
     }
 
-    Logger.info(`Periodic update for ${this.name} set every ${seconds}s`)
+    Logger.info(`  [RSS] Periodic update for ${this.name} set every ${seconds}s`)
     fetchNewItemsFnc() // first time is called immediately
 
     setInterval(fetchNewItemsFnc, seconds)

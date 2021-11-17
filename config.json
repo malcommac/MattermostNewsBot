@@ -7,7 +7,7 @@
             "template": "**[{{title}}]({{link}})**\n*{{description}}*",
             "last_update_ts": 0,
             "maxItems": 1,
-            "enabled": false
+            "enabled": true
         },
         {
             "url": "https://github.com/apple/swift-evolution/commits/master.atom",
@@ -17,7 +17,7 @@
             "template": "**[{{title}}]({{link}})**\n*{{description}}*",
             "last_update_ts": 0,
             "maxItems": 1,
-            "enabled": false
+            "enabled": true
         },
         {
             "url": "https://developer.apple.com/news/releases/rss/releases.rss",
@@ -27,7 +27,7 @@
             "template": "**[{{title}}]({{link}})**\n*{{description}}*",
             "last_update_ts": 0,
             "maxItems": 1,
-            "enabled": false
+            "enabled": true
         },
         {
             "url": "https://developer.apple.com/news/rss/news.rss",

@@ -10,7 +10,7 @@ for (let rawFeed of Config.data.rss) {
     rssFeeds.push(new RSSFeed(rawFeed))
 }
 
-Logger.info(`Registered ${rssFeeds.length} rss feeds...`)
+Logger.info(`[APP] Registered ${rssFeeds.length} rss feeds...`)
 
 // Fetch data    feed.fetch((newItems) => {
 for (let rssFeed of rssFeeds) {
@@ -18,9 +18,9 @@ for (let rssFeed of rssFeeds) {
     if (rssFeed.enabled == true) {
         rssFeed.registerPeriodicFetch(parseInt(Config.data.interval), (posts) => {
             if (posts.length == 0) {
-                Logger.info(`No news from feed '${rssFeed.name}'`)
+                Logger.info(`[APP] No news from feed '${rssFeed.name}'`)
             } else {
-                Logger.info(`There are ${posts.length} new posts in '${rssFeed.name}' feed`)
+                Logger.info(`[APP] There are ${posts.length} new posts in '${rssFeed.name}' feed`)
                 for (let post of posts) {
                     post.send()
                 }

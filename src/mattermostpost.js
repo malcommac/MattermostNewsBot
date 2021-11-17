@@ -13,7 +13,7 @@ MattermostPost.prototype.body = function() {
         username: this.feedItem.feed.name
     })
 
-    Logger.info(JSON.stringify(data))
+    // Logger.info(JSON.stringify(data))
     return data
 }
 
@@ -29,9 +29,9 @@ MattermostPost.prototype.send = function() {
         rejectUnhauthorized: false
     }, (error, response, body) => {
         if (error) {
-            Logger.warning(`Failed to send post: ${error}`)
+            Logger.warning(`  [Mattermost] Failed to send post: ${error}`)
         } else {
-            Logger.info(`Message sent to mattermost`)
+            Logger.info(`  [Mattermost] Message sent to mattermost`)
         }
     });
 }
