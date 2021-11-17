@@ -1,0 +1,15 @@
+{
+    "rss": [{
+        "url": " https://raywenderlich.com/ios/feed",
+        "image": "",
+        "name": "RW",
+        "channel": "ios-news",
+        "template": "New Release: [{{title}}](https://github.com{{link}})",
+        "last_update_ts": 0,
+        "maxItems": 2
+    }],
+    "mattermost": {
+        "hook_url": "https://mattermost"
+    },
+    "interval": "300000"
+}

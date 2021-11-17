@@ -1,0 +1,26 @@
+{
+    "name": "mattermost-news-bot",
+    "version": "1.0.0",
+    "description": "a nodejs based mattermost news bot",
+    "main": "index.js",
+    "dependencies": {
+        "feedparser": "^2.1.0",
+        "request": "^2.79.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/malcommac/MattermostNewsBot.git"
+    },
+    "keywords": [
+        "mattermost",
+        "rss",
+        "bot",
+        "news"
+    ],
+    "author": "Daniele Margutti <hello@danielemargutti.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/malcommac/MattermostNewsBot/issues"
+    },
+    "homepage": "https://github.com/malcommac/MattermostNewsBot"
+}
