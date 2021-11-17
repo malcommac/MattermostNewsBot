@@ -29,7 +29,9 @@ MattermostPost.prototype.send = function() {
         rejectUnhauthorized: false
     }, (error, response, body) => {
         if (error) {
-            Logger.warning(`[Mattermost] Failed to send post: ${error}`)
+            Logger.warning(`[Mattermost] Failed to send: ${error}`)
+        } else {
+            Logger.info(`[Mattermost] Message sent`)
         }
     });
 }
