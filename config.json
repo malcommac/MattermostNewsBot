@@ -50,16 +50,6 @@
             "enabled": true
         },
         {
-            "url": "http://feeds.feedburner.com/blogspot/hsDu",
-            "image": "https://mattermost.ekbl.net/files/4hsxm91bq7rtid5x3pr8wgsrzo/public?h=MpIHpoJElDakMyzX_LjAgwTUV6QQ9_RA4Pgg68dlIJQ",
-            "name": "Android Developers Blog",
-            "channel": "app-android-news",
-            "template": "**[{{title}}]({{link}})**\n*{{description}}*",
-            "last_update_ts": 0,
-            "maxItems": 1,
-            "enabled": true
-        },
-        {
             "url": "https://medium.com/feed/androiddevelopers",
             "image": "https://mattermost.ekbl.net/files/4hsxm91bq7rtid5x3pr8wgsrzo/public?h=MpIHpoJElDakMyzX_LjAgwTUV6QQ9_RA4Pgg68dlIJQ",
             "name": "Android Developers Blog",
