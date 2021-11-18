@@ -38,6 +38,46 @@
             "last_update_ts": 0,
             "maxItems": 1,
             "enabled": true
+        },
+        {
+            "url": "https://android-developers.blogspot.com/atom.xml",
+            "image": "https://mattermost.ekbl.net/files/rbg4owtiafrajmyx8id6kgxtqc/public?h=x8tEr7t3Y0IYL_kRoj4w6pyc4Gg1FcUb3ZBTkNFRjr0",
+            "name": "Android Developers",
+            "channel": "app-android-news",
+            "template": "**[{{title}}]({{link}})**\n*{{description}}*",
+            "last_update_ts": 0,
+            "maxItems": 1,
+            "enabled": true
+        },
+        {
+            "url": "http://feeds.feedburner.com/blogspot/hsDu",
+            "image": "https://mattermost.ekbl.net/files/4hsxm91bq7rtid5x3pr8wgsrzo/public?h=MpIHpoJElDakMyzX_LjAgwTUV6QQ9_RA4Pgg68dlIJQ",
+            "name": "Android Developers Blog",
+            "channel": "app-android-news",
+            "template": "**[{{title}}]({{link}})**\n*{{description}}*",
+            "last_update_ts": 0,
+            "maxItems": 1,
+            "enabled": true
+        },
+        {
+            "url": "https://medium.com/feed/androiddevelopers",
+            "image": "https://mattermost.ekbl.net/files/4hsxm91bq7rtid5x3pr8wgsrzo/public?h=MpIHpoJElDakMyzX_LjAgwTUV6QQ9_RA4Pgg68dlIJQ",
+            "name": "Android Developers Blog",
+            "channel": "app-android-news",
+            "template": "**[{{title}}]({{link}})**\n*{{description}}*",
+            "last_update_ts": 0,
+            "maxItems": 1,
+            "enabled": true
+        },
+        {
+            "url": "https://proandroiddev.com/feed",
+            "image": "https://mattermost.ekbl.net/files/4hsxm91bq7rtid5x3pr8wgsrzo/public?h=MpIHpoJElDakMyzX_LjAgwTUV6QQ9_RA4Pgg68dlIJQ",
+            "name": "ProAndroidDev",
+            "channel": "app-android-news",
+            "template": "**[{{title}}]({{link}})**\n*{{description}}*",
+            "last_update_ts": 0,
+            "maxItems": 1,
+            "enabled": true
         }
     ],
     "mattermost": {
