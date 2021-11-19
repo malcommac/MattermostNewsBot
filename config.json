@@ -5,7 +5,7 @@
             "name": "RayWenderlich",
             "channel": "ios-news",
             "template": "**[{{title}}]({{link}})**\n*{{description}}*",
-            "last_update_ts": 0,
+            "last_update_ts": 1637193600000,
             "maxItems": 1,
             "enabled": true
         },
@@ -15,7 +15,7 @@
             "name": "Swift-Evolution",
             "channel": "ios-news",
             "template": "**[{{title}}]({{link}})**\n*{{description}}*",
-            "last_update_ts": 0,
+            "last_update_ts": 1628015827000,
             "maxItems": 1,
             "enabled": true
         },
@@ -25,7 +25,7 @@
             "name": "Apple Releases",
             "channel": "ios-news",
             "template": "**[{{title}}]({{link}})**\n*{{description}}*",
-            "last_update_ts": 0,
+            "last_update_ts": 1637254800000,
             "maxItems": 1,
             "enabled": true
         },
@@ -35,7 +35,7 @@
             "name": "Apple Developer News",
             "channel": "ios-news",
             "template": "**[{{title}}]({{link}})**\n*{{description}}*",
-            "last_update_ts": 0,
+            "last_update_ts": 1637071234000,
             "maxItems": 1,
             "enabled": true
         },
@@ -45,7 +45,7 @@
             "name": "Android Developers",
             "channel": "app-android-news",
             "template": "**[{{title}}]({{link}})**\n*{{description}}*",
-            "last_update_ts": 0,
+            "last_update_ts": 1637334493000,
             "maxItems": 1,
             "enabled": true
         },
@@ -55,7 +55,7 @@
             "name": "Android Developers Blog",
             "channel": "app-android-news",
             "template": "**[{{title}}]({{link}})**\n*{{description}}*",
-            "last_update_ts": 0,
+            "last_update_ts": 1637258991000,
             "maxItems": 1,
             "enabled": true
         },
@@ -65,7 +65,7 @@
             "name": "ProAndroidDev",
             "channel": "app-android-news",
             "template": "**[{{title}}]({{link}})**\n*{{description}}*",
-            "last_update_ts": 0,
+            "last_update_ts": 1637181270000,
             "maxItems": 1,
             "enabled": true
         }

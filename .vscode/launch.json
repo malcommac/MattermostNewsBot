@@ -12,7 +12,8 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}/src/app.js",
-            "redirectOutput": true
+            "redirectOutput": true,
+            "outputCapture": "std"
         }
     ]
 }

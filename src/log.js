@@ -1,22 +1,23 @@
-let Logger = {
-    fatal: function(message) {
-        console.log(`${currentTimestamp()}: ❌ Fatal Error: ${message}`)
-        process.exit(1);
-    },
-    warning: function(message) {
-        console.log(`${currentTimestamp()}:⚠️ Warning: ${message}`)
-    },
-    info: function(message) {
-        console.log(`${currentTimestamp()}: ${message}`)
-    },
-    verbose: function(message) {
-        console.log(`${currentTimestamp()}: ${message}`)
-    }
+const winston = require('winston');
+
+const logger = winston.createLogger({
+    level: 'info',
+    format: winston.format.json(),
+    transports: [
+        // Write all logs with level `error` and below to `error.log`
+        new winston.transports.File({ filename: 'error.log', level: 'error' }),
+        // Write all logs with level `info` and below to `combined.log`
+        new winston.transports.File({ filename: 'combined.log' }),
+    ],
+});
+
+if (process.env.NODE_ENV !== 'production') {
+    logger.add(new winston.transports.Console({
+        format: winston.format.simple(),
+        prettyPrint: true,
+        colorize: true,
+        timestamp: true
+    }));
 }
 
-function currentTimestamp() {
-    var now = new Date()
-    return now.toUTCString()
-}
-
-module.exports = Logger
+module.exports = logger

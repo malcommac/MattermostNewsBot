@@ -13,13 +13,13 @@ MattermostPost.prototype.body = function() {
         username: this.feedItem.feed.name
     })
 
-    // Logger.info(JSON.stringify(data))
+    Logger.trace(`Sending JSON to Mattermost: ${JSON.stringify(data)}`)
     return data
 }
 
 // Deliver the message to mattermost specified hook url
 MattermostPost.prototype.send = function() {
-    let request = require('request');
+    /*let request = require('request');
     request({
         url: this.hookURL,
         method: "POST",
@@ -33,7 +33,7 @@ MattermostPost.prototype.send = function() {
         } else {
             Logger.info(`[Mattermost] Message sent`)
         }
-    });
+    });*/
 }
 
 module.exports = MattermostPost
